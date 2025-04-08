@@ -18,8 +18,18 @@
 /**
  * Routing
  */
-  $router = new Core\Router();
-  $router->add('',[
+$router = new Core\Router();
+$router->add('',[
     'controller' => 'Home',
     'action' => 'index'
 ]);
+// $router->add('books',[
+//     'controller' => 'Books',
+//     'action' => 'book'
+// ]);
+
+/**
+ * Route dispatch
+ */
+$url = $_SERVER['QUERY_STRING'];
+$router->dispatch($url);

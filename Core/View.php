@@ -13,7 +13,7 @@ class View
             $pageTitle = 'App';
         }
 
-        $file = '../App/Views/$view';
+        $file = "../App/Views/$view";
 
         if (is_readable($file)) {
             require $file;
