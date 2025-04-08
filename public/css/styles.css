@@ -1,3 +1,7 @@
+:root {
+  --colorError: red;
+}
+
 nav > ul {
   display: flex;
   flex-flow: nowrap;
@@ -7,4 +11,10 @@ nav > ul {
   li {
     list-style-type: none;
   }
+}
+
+#error {
+  border: thick solid var(--colorError);
+  border-radius: 1rem;
+  padding: 0 1rem;
 }
