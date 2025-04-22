@@ -1,10 +1,13 @@
 :root {
+  --colorDefault: black;
+  --colorButtonBackground: lightgrey;
+  --colorButtonHover: grey;
   --colorError: red;
 }
 
 nav > ul {
   display: flex;
-  flex-flow: nowrap;
+  flex-flow: row nowrap;
   gap: 1rem;
   padding-left: 0;
 
@@ -13,8 +16,39 @@ nav > ul {
   }
 }
 
+/* Book card */
+article.card {
+  h3,
+  h4 {
+    display: inline-block;
+    margin: 0;
+  }
+  h4:before {
+    content: "(";
+  }
+  h4:after {
+    content: ")";
+  }
+
+  header + p {
+    margin-top: 0;
+  }
+}
+
 #error {
   border: thick solid var(--colorError);
   border-radius: 1rem;
   padding: 0 1rem;
+}
+
+.button {
+  border-radius: 6px;
+  padding: 0.5rem 1rem;
+  color: var(--colorDefault);
+  background-color: var(--colorButtonBackground);
+
+  &:hover {
+    background-color: var(--colorButtonHover);
+    text-decoration: none;
+  }
 }
