@@ -3,6 +3,7 @@
 /**
  * Front controller
  */
+session_start();
 
 /**
  * It requires all class files instead of loading them one by one
@@ -37,9 +38,24 @@ $router->add('books/new', [
     'controller' => 'Books',
     'action' => 'new'
 ]);
+$router->add('books/create', [
+    'controller' => 'Books',
+    'action' => 'create',
+    'method' => 'POST'
+]);
+$router->add('books/delete', [
+    'controller' => 'Books',
+    'action' => 'delete',
+    'method' => 'POST'
+]);
+$router->add('authors', [
+    'controller' => 'Authors',
+    'action' => 'index'
+]);
 
 /**
  * Route dispatch
  */
 $url = $_SERVER['QUERY_STRING'];
-$router->dispatch($url);
+$method = $_SERVER['REQUEST_METHOD'];
+$router->dispatch($url, $method);
