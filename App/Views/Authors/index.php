@@ -1,24 +1,32 @@
 <?php include dirname(__DIR__) . '/Base/header.php'; ?>
 <?php include dirname(__DIR__) . '/Base/nav.php'; ?>
-    <!-- <nav>
+    <nav>
         <ul>
-            <li>
-                <a href="books/new" class="button">Add books</a>
-            </li>
+            <li><a href="authors/new" class="button">Add author</a></li>
         </ul>
-    </nav> -->
+    </nav>
     <main>
         <section>
             <header>
                 <h2>Author list</h2>
             </header>
-            <?php foreach($authors as $author): ?>
-                <article>
+            <?php if (isset($_SESSION['message'])): ?>
+                <section class="message">
+                    <p><?=$_SESSION['message'] ?></p>
+                    <?php unset($_SESSION['message']); ?>
+                </section>
+            <?php endif; ?>
+            <?php foreach ($authors as $author): ?>
+                <article class="card">
                     <header>
                         <h3><?=htmlspecialchars($author['first_name'] . ' ' . $author['last_name']); ?></h3>
                     </header>
-                </article>
-                <?php endforeach;?>
+                    <form action="<?=\App\Config::BASE_URL ?>authors/delete" method="POST">
+                        <input type="hidden" name="author_id" value="<?=$author['author_id'] ?>">
+                        <button>Delete</button>
+                    </form>
+                </article>  
+            <?php endforeach; ?>
         </section>
     </main>
 <?php include dirname(__DIR__) . '/Base/footer.php'; ?>
