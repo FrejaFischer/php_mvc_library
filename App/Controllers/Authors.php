@@ -13,10 +13,12 @@ class Authors extends \Core\Controller
     public function indexAction(): void
     {
         $authors = Author::getAll();
+        $search = $_GET['s'] ?? null; // To test route with query parameters
 
         View::render('Authors/index.php', [
             'pageTitle' => 'Authors',
-            'authors'   => $authors
+            'authors'   => $authors,
+            'search'    => $search
         ]);
     }
 

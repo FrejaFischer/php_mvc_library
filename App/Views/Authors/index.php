@@ -9,6 +9,7 @@
         <section>
             <header>
                 <h2>Author list</h2>
+                <?=$search?>
             </header>
             <?php if (isset($_SESSION['message'])): ?>
                 <section class="message">
